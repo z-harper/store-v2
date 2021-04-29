@@ -9,11 +9,21 @@ const URL = 'https://gp-super-store-api.herokuapp.com/item/list?sortDir=asc';
 const Home = () => {
 
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
+    let componentMounted = true; 
     const getAllItems = async () => {
+      setIsLoading(true);
       const response = await axios.get(URL);
-      setItems(response.data.items);
+      if (componentMounted) {  
+        setItems(response.data.items);
+        setIsLoading(false);
+      }
+      return () => { 
+        componentMounted = false; 
+      }
     }
     getAllItems();
   }, [])
@@ -21,7 +31,7 @@ const Home = () => {
   return (
     <>
       <Hero data={homedata} wavesSvg={wavesSvg} />
-      <ItemsContainer items={items} />
+      <ItemsContainer isLoading={isLoading} items={items} />
     </>
   )
 }

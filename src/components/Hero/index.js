@@ -1,6 +1,6 @@
 import * as S from './Hero.styled';
 
-const Hero = ({data, wavesSvg}) => {
+const Hero = ({data, wavesSvg, itemsCount}) => {
   return (
     <S.Hero>
       <S.Waves xmlns={wavesSvg.xmlns} viewBox={wavesSvg.viewBox}><path fill={wavesSvg.fill} fillOpacity={wavesSvg.fillOpacity} d={wavesSvg.d}></path></S.Waves>

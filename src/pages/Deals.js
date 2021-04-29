@@ -9,19 +9,28 @@ const URL = 'https://gp-super-store-api.herokuapp.com/item/list?isOnSale=true';
 const Deals = () => {
 
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let componentMounted = true; 
     const getAllItems = async () => {
+      setIsLoading(true);
       const response = await axios.get(URL);
-      setItems(response.data.items);
+      if (componentMounted) {  
+        setItems(response.data.items);
+        setIsLoading(false);
+      }
+      return () => { 
+        componentMounted = false; 
+      }
     }
     getAllItems();
   }, [])
 
   return (
     <>
-      <Hero data={dealsdata} wavesSvg={wavesSvg} />
-      <ItemsContainer items={items} />
+      <Hero data={dealsdata} wavesSvg={wavesSvg} itemsCount={items.length} />
+      <ItemsContainer isLoading={isLoading} items={items} />
     </>
   )
 }

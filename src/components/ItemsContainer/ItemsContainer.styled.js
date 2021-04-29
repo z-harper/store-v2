@@ -40,3 +40,13 @@ export const ItemsGrid = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `;
+
+export const NoItemsFound = styled.h3`
+  width: 100%;
+  height: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 2rem;
+`;

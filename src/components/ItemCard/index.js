@@ -1,10 +1,6 @@
 import * as S from './ItemCard.styled';
 import Stars from '../Stars';
-
-const formatPrice = (price) => {
-  let priceFormatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price)
-  return priceFormatted;
-}
+import { formatPrice } from '../../utils/price';
 
 const ItemCard = ({item}) => {
   return (
@@ -22,7 +18,7 @@ const ItemCard = ({item}) => {
           </S.PriceWrapper>
         </S.InfoWrapper>
         <S.BtnWrapper>
-          <S.ViewItemBtn>View Item</S.ViewItemBtn>
+          <S.ViewItemLink to={`/item/${item._id}`}>View Item</S.ViewItemLink>
         </S.BtnWrapper>
       </S.Wrapper>
     </S.ItemCard>

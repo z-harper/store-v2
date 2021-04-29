@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import breakpoints from '../../themes/breakpoints';
 
 export const ItemCard = styled.div`
@@ -60,6 +61,10 @@ export const PriceWrapper =styled.div`
 export const Price = styled.h4`
   margin-right: 8px;
   letter-spacing: 1.1px;
+
+  @media screen and ${breakpoints.device.sm} {
+    margin: 0;
+  }
 `;
 
 export const OnSale = styled.p`
@@ -76,17 +81,19 @@ export const BtnWrapper = styled.div`
   justify-content: center;
 `;
 
-export const ViewItemBtn = styled.button`
+export const ViewItemLink = styled(Link)`
   margin-top: 1rem;
   width: var(--btnWidth);
   height: var(--btnHeight);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--btnBg);
   color: var(--btnColor);
   font-size: 1rem;
   letter-spacing: 1.2px;
   border-radius: 8px;
-  border: none;
-  outline: none;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   
