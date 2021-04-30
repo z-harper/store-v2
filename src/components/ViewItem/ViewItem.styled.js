@@ -99,7 +99,7 @@ export const OnSale = styled.p`
   color: var(--itemCardOnSaleColor);
 `;
 
-export const QuantityContainer = styled.div`
+export const QuantityForm = styled.form`
   margin-top: 1rem;
 `;
 
