@@ -1,25 +1,8 @@
-import { useState } from 'react';
 import * as S from './ViewItem.styled';
 import { formatPrice } from '../../utils/price';
 import Stars from '../Stars';
 
-const ViewItem = ({item}) => {
-
-  const [selectedQuantity, setSelectedQuantity] = useState(0);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (selectedQuantity > item.stockCount) {
-      console.log('insufficient stock');
-      return;
-    } 
-    
-    setSelectedQuantity(0);
-  }
-
-  //https://www.cluemediator.com/create-simple-popup-in-reactjs
-
+const ViewItem = ({item, selectedQuantity, handleChange, handleSubmit }) => {
   return (
     <S.ViewItem>
       <S.Wrapper>
@@ -36,9 +19,9 @@ const ViewItem = ({item}) => {
           </S.PriceWrapper>
           <S.QuantityForm>
             <S.QuantityLabel htmlFor='quantity'>Quantity:</S.QuantityLabel>
-            <S.QuantitySelected required type='number' id='quantity' name='quantity' placeholder='0' min='0' value={selectedQuantity} onChange={e => setSelectedQuantity(e.target.value)} />
+            <S.QuantitySelected required type='number' id='quantity' name='quantity' placeholder='0' min='0' value={selectedQuantity} onChange={e => handleChange(e)} />
           </S.QuantityForm>
-          <S.AddToCartBtn type='submit' onClick={handleSubmit}>Add to Cart</S.AddToCartBtn>
+          <S.AddToCartBtn type='submit' onClick={e => handleSubmit(e)}>Add to Cart</S.AddToCartBtn>
         </S.ContentWrapper>
       </S.Wrapper>
     </S.ViewItem>
