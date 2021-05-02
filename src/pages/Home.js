@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { homedata, wavesSvg } from '../components/Hero/Hero.data';
 import Hero from '../components/Hero';
-import ItemsContainer from '../components/ItemsContainer';
+import HomeContent from '../components/HomeContent';
 
 const URL = 'https://gp-super-store-api.herokuapp.com/item/list?sortDir=asc';
 
@@ -11,7 +11,6 @@ const Home = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   
-
   useEffect(() => {
     let componentMounted = true; 
     const getAllItems = async () => {
@@ -31,7 +30,7 @@ const Home = () => {
   return (
     <>
       <Hero data={homedata} wavesSvg={wavesSvg} />
-      <ItemsContainer isLoading={isLoading} items={items} />
+      <HomeContent isLoading={isLoading} items={items} />
     </>
   )
 }
