@@ -16,10 +16,6 @@ const Paginate = ({isLoading, items}) => {
     return items.slice(startIndex, endIndex);
   }
 
-  useEffect(() => {
-    window.scrollTo({ behavior: 'smooth', top: 300 });
-  }, [currentPage]);
-
   // Returns group of page numbers in the pagination equal to PAGES_LIMIT
   const getPaginatedGroup = () => {
     let pages = Math.ceil(items.length / ITEMS_LIMIT);
@@ -44,10 +40,17 @@ const Paginate = ({isLoading, items}) => {
     setCurrentPage(pageNumber);
   }
 
+  useEffect(() => {
+    window.scrollTo({ behavior: 'smooth', top: 300 });
+  }, [currentPage]);
+
   return (
     <S.Paginate>      
       <ItemsContainer isLoading={isLoading} items={getPaginatedItems()} />
       <S.Wrapper>
+        <S.PrevNextButton disabled={currentPage === 1} onClick={() => setCurrentPage(1)}>
+          First
+        </S.PrevNextButton>
         <S.PrevNextButton disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
           Prev
         </S.PrevNextButton>
@@ -58,6 +61,9 @@ const Paginate = ({isLoading, items}) => {
         ))}
         <S.PrevNextButton disabled={currentPage === Math.ceil(items.length / ITEMS_LIMIT) || items.length === 0} onClick={() => setCurrentPage(currentPage + 1)}>
           Next
+        </S.PrevNextButton>
+        <S.PrevNextButton disabled={currentPage === Math.ceil(items.length / ITEMS_LIMIT) || items.length === 0} onClick={() => setCurrentPage(Math.ceil(items.length / ITEMS_LIMIT))}>
+          Last
         </S.PrevNextButton>
       </S.Wrapper>
     </S.Paginate>
