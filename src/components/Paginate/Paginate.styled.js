@@ -26,7 +26,7 @@ border-radius: 8px;
 border: none;
 outline: none;
 cursor: pointer;
-cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
+cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
 transition: all 0.2s ease-in-out;
 `;
 

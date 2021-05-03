@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import * as S from './Paginate.styled';
 import ItemsContainer from '../ItemsContainer';
 
@@ -15,6 +15,10 @@ const Paginate = ({isLoading, items}) => {
     const endIndex = startIndex + ITEMS_LIMIT;
     return items.slice(startIndex, endIndex);
   }
+
+  useEffect(() => {
+    window.scrollTo({ behavior: 'smooth', top: 300 });
+  }, [currentPage]);
 
   // Returns group of page numbers in the pagination equal to PAGES_LIMIT
   const getPaginatedGroup = () => {
