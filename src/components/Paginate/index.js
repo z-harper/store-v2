@@ -38,7 +38,6 @@ const Paginate = ({isLoading, items}) => {
   const changePage = (e) => {
     const pageNumber = Number(e.target.textContent);
     setCurrentPage(pageNumber);
-
   }
 
   return (
@@ -53,7 +52,7 @@ const Paginate = ({isLoading, items}) => {
               {item}
             </S.PageButton>
         ))}
-        <S.PrevNextButton disabled={currentPage === Math.ceil(items.length / ITEMS_LIMIT)} onClick={() => setCurrentPage(currentPage + 1)}>
+        <S.PrevNextButton disabled={currentPage === Math.ceil(items.length / ITEMS_LIMIT) || items.length === 0} onClick={() => setCurrentPage(currentPage + 1)}>
           Next
         </S.PrevNextButton>
       </S.Wrapper>
