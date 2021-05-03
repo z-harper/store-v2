@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as S from './HomeContent.styled';
 import Searchbar from '../Searchbar';
 import ItemsContainer from '../ItemsContainer';
+import Paginate from '../Paginate';
 
 const HomeContent = ({isLoading, items}) => {
 
@@ -22,7 +23,8 @@ const HomeContent = ({isLoading, items}) => {
   return (
     <S.HomeContent>
       <Searchbar handleChange={handleChange} />
-      <ItemsContainer isLoading={isLoading} items={userSearch.length < 1 ? items : searchResults} />
+      <Paginate isLoading={isLoading} items={userSearch.length < 1 ? items : searchResults} />
+      {/* <ItemsContainer isLoading={isLoading} items={userSearch.length < 1 ? items : searchResults} /> */}
     </S.HomeContent>
   )
 }
