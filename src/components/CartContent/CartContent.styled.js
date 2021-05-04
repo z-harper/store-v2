@@ -12,6 +12,11 @@ export const CartContent = styled.div`
   }
 `;
 
+export const CartEmpty = styled.h3`
+  margin: 3rem 0;
+  color: #558dca;
+`;
+
 export const Wrapper = styled.div`
   height: 100%;
   width: 100%;
@@ -38,6 +43,10 @@ export const ItemContainer = styled.div`
   display: flex;
   border: 2px solid #022449;
   border-radius: 4px;
+
+  @media screen and ${breakpoints.device.sm} {
+    flex-direction: column;
+  }
 `;
 
 export const ImgWrapper = styled.div`
@@ -47,6 +56,10 @@ export const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and ${breakpoints.device.sm} {
+    margin: auto;
+  }
 `;
 
 export const Img = styled.img`
@@ -59,7 +72,13 @@ export const Name = styled.h3`
 `;
 
 export const QuantityContainer = styled.div`
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and ${breakpoints.device.sm} {
+    margin: 1rem auto;
+  }
 `;
 
 export const PriceContainer = styled.div`
@@ -67,6 +86,10 @@ export const PriceContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media screen and ${breakpoints.device.sm} {
+    margin: auto;
+  }
 `;
 
 export const CurrentQuantity = styled.h4`
@@ -78,12 +101,58 @@ export const Price = styled.h2`
   letter-spacing: 1.1px;
   text-align: right;
   border-top: 2px solid #022449;
+
+  @media screen and ${breakpoints.device.sm} {
+    margin-top: 0.5rem;
+  }
+`;
+
+export const QuantityBtnWrapper = styled.div`
+
+  @media screen and ${breakpoints.device.sm} {
+    margin: 1rem auto;
+  }
+`;
+
+export const ChangeQuantityBtn = styled.button`
+  width: 1.5rem;
+  cursor: pointer;
+  border: 1px solid #022449;
+  border-radius: 4px;
+  color: #022449;
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: #ccdcef;
+  }
+`;
+
+export const QuantitySelected = styled.span`
+  margin: 0 4px;
+  color: #022449;
+`;
+
+export const DeleteItemBtn = styled.p`
+  text-decoration: underline;
+  cursor: pointer;
+  color: #558dca;
+  font-size: 16px;
+
+  @media screen and ${breakpoints.device.sm} {
+    margin: auto;
+  }
 `;
 
 export const CheckoutContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and ${breakpoints.device.xs} {
+    padding-top: 1.5rem;
+    flex-direction: column-reverse;
+  }
 `;
 
 export const CheckoutBtn = styled.button`
@@ -102,6 +171,10 @@ export const CheckoutBtn = styled.button`
 
   &:hover {
     background: #022449;
+  }
+
+  @media screen and ${breakpoints.device.xs} {
+    margin-top: 0.5rem;
   }
 `;
 

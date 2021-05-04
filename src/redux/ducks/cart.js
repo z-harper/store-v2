@@ -2,6 +2,7 @@
 const ADD_TO_CART = 'addToCart';
 const REMOVE_FROM_CART = 'removeFromCart';
 const UPDATE_ITEM_QUANTITY = 'updateItemQuantity';
+const CLEAR_CART = 'clearCart';
 
 // Reducer
 export default function cartReducer(state =[], action) {
@@ -15,6 +16,8 @@ export default function cartReducer(state =[], action) {
         ? {...item, quantity: item.quantity + action.payload.quantity}
         : item
       )
+    case CLEAR_CART:
+      return [];
     default:
       return state;
   }
@@ -43,4 +46,8 @@ export const updateItemQuantity = (item) => ({
     _id: item._id,
     quantity: item.quantity,
   }
+})
+
+export const clearCart = () => ({
+  type: CLEAR_CART,
 })
