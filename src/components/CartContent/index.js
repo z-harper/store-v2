@@ -14,8 +14,8 @@ const CartContent = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isShortStock, setIsShortStock] = useState(false); // Used to display popup
-  const [stockCount, setStockCount] = useState(); // Used in popup
-  const [isCheckedOut, setIsCheckedOut] = useState(false);
+  const [stockCount, setStockCount] = useState(); // Used in shortstock popup
+  const [isCheckedOut, setIsCheckedOut] = useState(false);  // Triggers checkout popup when true
 
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
