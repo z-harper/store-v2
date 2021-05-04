@@ -44,7 +44,7 @@ export const Link = styled(NavLink)`
   display: inline-flex;
   align-items: center;
   height: 100%;
-  padding: 0 1rem;
+  margin-left: 1rem;
   color: var(--linkColor);
   font-weight: bold;
   text-decoration: none;
@@ -54,4 +54,37 @@ export const Link = styled(NavLink)`
   &.active {
     color: var(--linkActive);
   }
+`;
+
+export const LinkIcon = styled(NavLink)`
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  color: var(--linkColor);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+
+  &.active {
+    color: var(--linkActive);
+  }
+`;
+
+export const IconWrapper = styled.span`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+`;
+
+export const CartCount = styled.span`
+  z-index: 6;
+  position: absolute;
+  left: 12px;
+  top: -5px;
+  padding: 0 4px;
+  color: #fff;
+  background: red;
+  border-radius: 50%;
 `;

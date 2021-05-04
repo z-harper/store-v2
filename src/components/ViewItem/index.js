@@ -19,7 +19,7 @@ const ViewItem = ({item, selectedQuantity, handleChange, handleSubmit }) => {
           </S.PriceWrapper>
           <S.QuantityForm>
             <S.QuantityLabel htmlFor='quantity'>Quantity:</S.QuantityLabel>
-            <S.QuantitySelected required type='number' id='quantity' name='quantity' placeholder='0' min='0' value={selectedQuantity} onChange={e => handleChange(e)} />
+            <S.QuantitySelected required type='number' id='quantity' name='quantity' placeholder='1' min='1' value={selectedQuantity} onChange={e => handleChange(e)} />
           </S.QuantityForm>
           <S.AddToCartBtn type='submit' onClick={e => handleSubmit(e)}>Add to Cart</S.AddToCartBtn>
         </S.ContentWrapper>
